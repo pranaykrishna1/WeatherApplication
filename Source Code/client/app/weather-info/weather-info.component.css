@@ -1,0 +1,79 @@
+.container {
+  width: 1000px;
+}
+
+/* enable absolute positioning */
+.inner-addon {
+  position: relative;
+  width:40%;
+  margin:auto;
+}
+
+/* style glyph */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: all;
+  color:black;
+}
+
+.right-addon .glyphicon { 
+    right: 0px;
+}
+
+.right-addon input { 
+    padding-right: 30px;
+}
+	
+.mt-10 {
+	margin-top:30px;
+}
+	
+.mt-5 {
+	margin-top: 20px;
+}
+
+.climate-title {
+	margin-top:10px;
+}
+
+.fa-cloud {
+	font-size: 30px;
+}
+
+.value {
+	font-size: 20px;
+}
+
+p {
+	margin : 0px;
+}
+
+.mb-10 {
+	margin-bottom: 10px;
+}
+
+.mr-5 {
+	margin-right: 5px;
+}
+
+.zoom {
+	width:auto;
+	margin:20px;
+}
+
+.zoom:hover {
+	-ms-transform: scale(1.25); /* IE 9 */
+	-webkit-transform: scale(1.25); /* Safari 3-8 */
+	transform: scale(1.25);	
+	border:1px solid white;
+	padding: 15px 5px;
+}
+
+.hr {
+	margin-top:10px;
+}
+
+.city-field {
+    margin-bottom: 10px;
+}

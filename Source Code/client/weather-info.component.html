@@ -1,0 +1,54 @@
+<div class="container container-fluid">
+	<div class="row">
+		<div class="col-md-2">
+			<div class="row mt-10" *ngIf="!(showError || showInvalidError)">
+				<i class="fas fa-cloud"></i>
+				<div class="value">{{weatherData.summary}}</div>
+				<p>{{weatherData.location}}</p>
+			</div>
+			<div class="row mt-5" *ngIf="!(showError || showInvalidError)">
+				<div class="value">{{weatherData.temperature}} &#8457;</div>
+				<p>Change Location</p>
+			</div>
+		</div>
+		<div class="col-md-8 col-xs-12">
+			<h1 class="text-center text-bold">Know Weather</h1>
+			<div class="inner-addon right-addon" [class.has-error]="showError">
+        <i class="glyphicon glyphicon-search" (click)="getLocationData()"></i>
+        <input type="text" class="form-control city-field" placeholder="Enter city or state" 
+        [(ngModel)]="locationName" (keyup.enter)="getLocationData()"/>
+		<span *ngIf="showError" class="error-msg text-center">Please enter the valid city name or state code</span>
+		<span *ngIf="showInvalidError" class="error-msg text-center">No Matches found for the location name</span>
+      </div>
+		</div>
+		<div class="col-md-2 col-xs-2 pull-right">
+			<div class="row mt-10" *ngIf="!(showError || showInvalidError)">
+				<p><i class="fas fa-water"></i> Humidity</p>
+				<div class="value">{{weatherData.humidity}}</div>
+			</div>
+			<div class="row mt-5" *ngIf="!(showError || showInvalidError)">
+				<p><i class='fas fa-temperature-low'></i> Air Pressure</p>
+				<div class="value">{{weatherData.pressure}} PS</div>
+			</div>
+			<div class="row mt-5" *ngIf="!(showError || showInvalidError)">
+				<p><i class='fas fa-umbrella'></i> Chance of Rain</p>
+				<div class="value">{{weatherData.rainChance}}</div>
+			</div>
+			<div class="row mt-5" *ngIf="!(showError || showInvalidError)">
+				<p><i class='fas fa-wind'></i> Wind speed</p>
+				<div class="value">{{weatherData.windSpeed}}km/h</div>
+			</div>
+		</div>
+	</div>
+	<div class="row"></div>
+	<div class="row" *ngIf="!(showInvalidError || showError)">
+		<h3 class="text-center text-bold mb-10">Hourly Forecast</h3>
+		<div class="col-md-2 zoom" *ngFor="let hour of hourlyData;let i=index">
+      <div *ngIf="i < 5">
+			  <p>{{hour.time}}</p>
+			  <div class="value hr">{{hour.temperature}} &#8457;</div>
+        <p>Feels like {{hour.feelsLike}} &#8457;</p>
+      </div>
+		</div>
+	</div>
+</div>
